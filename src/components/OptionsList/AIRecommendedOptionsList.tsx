@@ -182,7 +182,7 @@ const AIRecommendedOptionsList: React.FC<AIRecommendedOptionsListProps> = ({
           <OptionCard
             key={option.symbol}
             option={option}
-            underlyingPrice={currentPrice}
+            underlyingPrice={currentPrice ?? null}
             onPurchaseClick={onPurchaseClick}
           />
         ))}

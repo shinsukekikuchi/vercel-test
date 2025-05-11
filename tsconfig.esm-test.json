@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "dist/api-esm-test",
+    "module": "ESNext",
+    "target": "ES2022",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "allowImportingTsExtensions": false
+  },
+  "include": ["src/api/bybit.ts", "src/api/bybitTest.ts"]
+}

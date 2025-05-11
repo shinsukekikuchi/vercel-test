@@ -1,0 +1,309 @@
+/* 必要最小限のCSS - 他のスタイルはD3で直接制御 */
+.options-chart-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  background-color: rgba(26, 26, 28, 0.7);
+  /* border: 4px solid #3F3F46; */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.options-chart-container svg {
+  display: block;
+  overflow: visible;
+  width: 100%;
+  height: auto;
+}
+
+/* ツールチップスタイル */
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  z-index: 10;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 選択オプション表示エリア */
+.selected-option-info {
+  margin-top: 16px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid #333;
+  color: #e0e0e0;
+}
+
+.selected-option-info h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.selected-option-details {
+  margin: 8px 0 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+/* 取引ボタン */
+.trade-button {
+  background-color: #6933f5;
+  /* primary-600 */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.trade-button:hover {
+  background-color: #5626dc;
+  /* primary-700 */
+}
+
+/* データポイントのホバー効果 */
+.options-chart-container .key-point:hover {
+  r: 5;
+  stroke-width: 2;
+}
+
+.options-chart-container .price-curve {
+  filter: drop-shadow(0px 2px 5px rgba(249, 168, 37, 0.5));
+  z-index: 10;
+  pointer-events: none;
+}
+
+.heatmap-cell {
+  stroke: rgba(19, 20, 27, 0.5);
+  stroke-width: 1;
+  transition: opacity 0.2s, stroke 0.2s, filter 0.2s;
+}
+
+.heatmap-cell:hover {
+  stroke: #f5a623;
+  stroke-width: 1.5;
+  filter: brightness(1.2);
+  z-index: 5;
+}
+
+.options-chart-container .current-price-line {
+  opacity: 0.8;
+}
+
+.options-chart-container .current-price-label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  display: none;
+  background: rgba(17, 18, 23, 0.95);
+  color: white;
+  border: 1px solid rgba(249, 168, 37, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  max-width: 220px;
+  line-height: 1.4;
+  backdrop-filter: blur(4px);
+}
+
+.tooltip-strike {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #f5a623;
+}
+
+.tooltip-price,
+.tooltip-iv,
+.tooltip-delta,
+.tooltip-volume {
+  margin-bottom: 2px;
+}
+
+.tooltip-hint {
+  margin-top: 8px;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 11px;
+  color: #f5a623;
+  text-align: center;
+}
+
+.tooltip-score {
+  margin: 4px 0;
+  padding: 4px 8px;
+  background: rgba(245, 166, 35, 0.15);
+  border-radius: 2px;
+  font-weight: 600;
+  color: #f5a623;
+}
+
+.trade-button {
+  background-color: #f5a623;
+  color: #13141b;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.trade-button:hover {
+  background-color: #f7b84b;
+}
+
+/* メインコンテナ用スタイル */
+.options-visualization-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.tab {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.tab.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.tab:hover:not(.active) {
+  background-color: #e0e0e0;
+}
+
+/* フィルターコントロール */
+.filter-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+.filter-label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.filter-presets {
+  display: flex;
+  gap: 8px;
+}
+
+.preset-button {
+  padding: 6px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.preset-button.active {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+  color: #0d47a1;
+}
+
+/* データポイントベース */
+@keyframes pulsePoint {
+
+  0%,
+  100% {
+    r: 6;
+    opacity: 0.9;
+  }
+
+  50% {
+    r: 9;
+    opacity: 1;
+  }
+}
+
+.data-point {
+  animation: pulsePoint 2.4s ease-in-out infinite;
+  transition: r 0.15s ease, fill 0.15s ease;
+}
+
+.data-point:hover {
+  r: 11;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+.data-point.recommend {
+  stroke: #ffffff;
+  stroke-width: 1px;
+  paint-order: stroke;
+}
+
+.data-point.highlight {
+  stroke: #4a91ff;
+  stroke-width: 2px;
+}
+
+.data-point.dimmed {
+  opacity: 0.15;
+}
+
+/* バッジ */
+.badge {
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.badge-bullish {
+  background: #00c49a;
+}
+
+.badge-bearish {
+  background: #ff4a91;
+}
+
+.badge-neutral {
+  background: #555;
+}
+
+/* removed control styles */

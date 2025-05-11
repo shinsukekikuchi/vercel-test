@@ -1,0 +1,43 @@
+.history-table-container {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.8rem; /* Slightly smaller font size */
+}
+
+.history-table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #e0e0e0; /* Light gray text for readability */
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid #4a5568; /* Darker gray borders */
+  padding: 6px 8px;
+  text-align: left;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.history-table th {
+  background-color: #2d3748; /* Even darker gray for headers */
+  color: #a0aec0; /* Lighter gray for header text */
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+}
+
+.history-table tbody tr:nth-child(even) {
+  background-color: #262e3b; /* Slightly different shade for even rows */
+}
+
+.history-table tbody tr:hover {
+  background-color: #394251; /* Highlight on hover */
+}
+
+/* Specific column styling */
+.history-table td.text-green-400 {
+  color: #48bb78; /* Tailwind green-400 */
+}
+
+.history-table td.text-red-400 {
+  color: #f56565; /* Tailwind red-400 */
+}
